@@ -44,17 +44,17 @@ const awards = [
   {
     icon: 'science',
     title: 'Merck Innovation Award',
-    issuer: 'Merck Global Health Initiative',
+    issuer: 'Merck KGaA',
   },
   {
     icon: 'school',
-    title: 'Clark Atlanta University School of Business – Business and Leadership Training (2025 Cohort)',
+    title: 'Clark Atlanta University School of Business – Leadership in Business',
     issuer: '',
   },
   {
     icon: 'hub',
     title: 'INSEAD AI Venture Lab Fellow',
-    issuer: '',
+    issuer: 'INSEAD',
   },
 ];
 

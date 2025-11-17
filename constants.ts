@@ -15,7 +15,7 @@ export const SKILLS = [
     {
         icon: 'insights',
         title: 'Product Strategy',
-        description: 'Defining the "why", "what", and "when" of the product that is being built.',
+        description: 'Building fast from Ideation. Manage Existing Products',
     },
     {
         icon: 'design_services',

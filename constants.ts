@@ -25,7 +25,7 @@ export const SKILLS = [
     {
         icon: 'code',
         title: 'AI Transformation',
-        description: 'Understanding the opportunities and potential AI brings to products.',
+        description: 'Help teams adopt AI in development.',
     },
     {
         icon: 'analytics',
@@ -34,7 +34,7 @@ export const SKILLS = [
     },
     {
         icon: 'groups',
-        title: 'Business Leadership',
+        title: 'Consulting and Business Leadership',
         description: 'Leading cross-functional teams to deliver high-quality products on time.',
     },
     {

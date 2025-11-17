@@ -18,7 +18,7 @@ const About: React.FC = () => {
         </div>
         <div className="md:col-span-3">
           <h2 className="font-heading text-3xl font-bold leading-tight tracking-tighter text-white md:text-4xl">Driven by Impact and Innovation</h2>
-          <p className="mt-4 leading-relaxed text-gray-300">I'm a product leader passionate about building technology that matters. With a background in AI and Fintech, I specialize in transforming complex challenges into user-friendly solutions that drive business growth and improve lives.</p>
+          <p className="mt-4 leading-relaxed text-gray-300">I'm a product leader passionate about building technology that matters. With expertise in AI, SaaS and Fintech, I specialize in transforming complex challenges into user-friendly solutions that drive business growth and improve lives.</p>
           <p className="mt-4 leading-relaxed text-gray-300">From launching products in global markets to leading cross-functional teams, my focus is always on creating value and delivering excellence.</p>
           <a href="#about" onClick={(e) => handleNavClick(e, '#about')} className="mt-8 inline-flex h-12 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-white/10 px-6 text-base font-bold leading-normal tracking-[0.015em] text-white transition-all hover:bg-white/20">
             <span className="truncate">More About Me</span>

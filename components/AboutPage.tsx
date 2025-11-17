@@ -43,7 +43,7 @@ const awards = [
   },
   {
     icon: 'science',
-    title: 'Merck Innovation Recognition Award',
+    title: 'Merck Innovation Award',
     issuer: 'Merck Global Health Initiative',
   },
   {

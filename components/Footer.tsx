@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
                 <a className="text-neutral-400 hover:text-white transition-colors text-base font-normal leading-normal min-w-40" href="#portfolio" onClick={(e) => handleNavClick(e, '#portfolio')}>Portfolio</a>
                 <a className="text-neutral-400 hover:text-white transition-colors text-base font-normal leading-normal min-w-40" href="#contact" onClick={(e) => handleNavClick(e, '#contact')}>Contact</a>
             </div>
-            <p className="text-neutral-500 text-sm font-normal leading-normal">© 2024 Daniel Olaniyan. All Rights Reserved.</p>
+            <p className="text-neutral-500 text-sm font-normal leading-normal">© 2025 Daniel Olaniyan. All Rights Reserved.</p>
         </footer>
     );
 };

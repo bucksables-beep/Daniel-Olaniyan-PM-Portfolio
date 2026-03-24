@@ -35,21 +35,21 @@ const Services: React.FC = () => {
   const [openIdx, setOpenIdx] = useState(0);
 
   return (
-    <section className="py-32 px-6 md:px-20 bg-[#070B12] min-h-[calc(100vh-80px)] flex items-center" id="services">
+    <section className="py-20 md:py-32 px-6 md:px-20 bg-[#070B12] min-h-[calc(100vh-80px)] flex items-center" id="services">
       <div className="max-w-[1400px] mx-auto w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-end mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-32 items-start lg:items-end mb-16 md:mb-24">
           <div>
-            <div className="font-mono text-sm text-[#0DDFF2] tracking-[0.2em] uppercase flex items-center gap-4 mb-6 reveal">
+            <div className="font-mono text-xs md:text-sm text-[#0DDFF2] tracking-[0.2em] uppercase flex items-center gap-4 mb-6 reveal">
               Services
-              <div className="w-16 h-px bg-[#0DDFF2]/30"></div>
+              <div className="w-12 md:w-16 h-px bg-[#0DDFF2]/30"></div>
             </div>
-            <h2 className="font-syne font-bold text-title tracking-[-0.03em] leading-[1.06] text-[#DDE4EE] reveal d1">
-              What I build<br />for you.
+            <h2 className="font-syne font-bold text-3xl md:text-5xl lg:text-title tracking-[-0.03em] leading-[1.1] text-[#DDE4EE] reveal d1">
+              What I build<br className="hidden md:block" /> for you.
             </h2>
           </div>
-          <div className="text-body-xl text-[#6E8099] font-light reveal d2">
-            <p className="mb-10">Every engagement starts with a real problem, not a technology. I scope precisely, build fast, and hand over systems you can run independently. Fixed-price. Measurable outcomes. Available worldwide.</p>
-            <a href="https://calendar.app.google/D7opz2qsSh4MxHGa6" target="_blank" className="inline-flex items-center gap-4 font-mono text-sm text-[#0DDFF2] no-underline border border-[#0DDFF2]/30 px-10 py-5 rounded-[4px] bg-[#0DDFF2]/10 transition-all duration-200 hover:bg-[#0DDFF2] hover:text-[#070B12] uppercase font-bold">
+          <div className="text-lg md:text-xl lg:text-body-xl text-[#6E8099] font-light reveal d2">
+            <p className="mb-8 md:mb-10">Every engagement starts with a real problem, not a technology. I scope precisely, build fast, and hand over systems you can run independently. Fixed-price. Measurable outcomes. Available worldwide.</p>
+            <a href="https://calendar.app.google/D7opz2qsSh4MxHGa6" target="_blank" className="inline-flex items-center gap-4 font-mono text-xs md:text-sm text-[#0DDFF2] no-underline border border-[#0DDFF2]/30 px-6 py-4 md:px-10 md:py-5 rounded-[4px] bg-[#0DDFF2]/10 transition-all duration-200 hover:bg-[#0DDFF2] hover:text-[#070B12] uppercase font-bold">
               Book a discovery call →
             </a>
           </div>
@@ -59,32 +59,42 @@ const Services: React.FC = () => {
           {SERVICES.map((svc, idx) => (
             <div 
               key={svc.num} 
-              className={`grid grid-cols-[80px_1fr_auto] items-center gap-0 border-b border-white/10 cursor-pointer transition-all duration-250 relative overflow-hidden group ${openIdx === idx ? 'bg-[#111827]' : 'hover:bg-[#111827]'}`}
+              className={`flex flex-col md:grid md:grid-cols-[80px_1fr_auto] items-start md:items-center gap-0 border-b border-white/10 cursor-pointer transition-all duration-250 relative overflow-hidden group ${openIdx === idx ? 'bg-[#111827]' : 'hover:bg-[#111827]'}`}
               onClick={() => setOpenIdx(idx)}
             >
               <div className={`absolute left-0 top-0 bottom-0 w-[4px] bg-[#0DDFF2] transition-transform duration-350 origin-bottom ${openIdx === idx ? 'scale-y-100' : 'scale-y-0 group-hover:scale-y-100'}`}></div>
-              <div className={`font-mono text-lg tracking-[0.1em] p-10 border-r border-white/10 text-center self-stretch flex items-center justify-center ${openIdx === idx ? 'text-[#0DDFF2]' : 'text-[#3A4D62]'}`}>
+              
+              <div className={`hidden md:flex font-mono text-lg tracking-[0.1em] p-10 border-r border-white/10 text-center self-stretch items-center justify-center ${openIdx === idx ? 'text-[#0DDFF2]' : 'text-[#3A4D62]'}`}>
                 {svc.num}
               </div>
-              <div className="p-10 px-12 flex flex-col">
-                <div className="flex items-center justify-between gap-8">
-                  <div>
-                    <div className={`font-syne font-bold text-3xl text-[#DDE4EE] tracking-[-0.02em] transition-colors duration-200 ${openIdx === idx ? 'text-[#0DDFF2]' : 'group-hover:text-[#0DDFF2]'}`}>
+
+              <div className="p-6 md:p-10 md:px-12 flex flex-col w-full">
+                <div className="flex items-center justify-between gap-4">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-4 mb-2 md:hidden">
+                      <span className="font-mono text-xs text-[#0DDFF2]">{svc.num}</span>
+                      <div className="h-px flex-1 bg-white/5"></div>
+                    </div>
+                    <div className={`font-syne font-bold text-xl md:text-3xl text-[#DDE4EE] tracking-[-0.02em] transition-colors duration-200 ${openIdx === idx ? 'text-[#0DDFF2]' : 'group-hover:text-[#0DDFF2]'}`}>
                       {svc.title}
                     </div>
-                    <div className="font-mono text-xs text-[#3A4D62] tracking-[0.15em] uppercase mt-3">
+                    <div className="font-mono text-[10px] md:text-xs text-[#3A4D62] tracking-[0.15em] uppercase mt-2 md:mt-3">
                       {svc.sub}
                     </div>
                   </div>
+                  <div className={`md:hidden w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-lg transition-all duration-300 ${openIdx === idx ? 'bg-[#0DDFF2] border-[#0DDFF2] text-[#070B12] rotate-45' : ''}`}>
+                    +
+                  </div>
                 </div>
-                <div className={`overflow-hidden transition-all duration-450 ease-[cubic-bezier(0.16,1,0.3,1)] ${openIdx === idx ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'}`}>
-                  <div className="pt-10 pb-4">
-                    <p className="text-body-large text-[#6E8099] leading-[1.8] font-light max-w-[800px] mb-10">
+                
+                <div className={`overflow-hidden transition-all duration-450 ease-[cubic-bezier(0.16,1,0.3,1)] ${openIdx === idx ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                  <div className="pt-6 md:pt-10 pb-4">
+                    <p className="text-sm md:text-lg lg:text-body-large text-[#6E8099] leading-[1.8] font-light max-w-[800px] mb-8 md:mb-10">
                       {svc.desc}
                     </p>
-                    <div className="flex gap-4 flex-wrap">
+                    <div className="flex gap-2 md:gap-4 flex-wrap">
                       {svc.deliverables.map((del) => (
-                        <span key={del} className="font-mono text-xs text-[#0DDFF2] bg-[#0DDFF2]/10 border border-[#0DDFF2]/30 px-5 py-2 rounded-[4px] uppercase tracking-wider">
+                        <span key={del} className="font-mono text-[10px] md:text-xs text-[#0DDFF2] bg-[#0DDFF2]/10 border border-[#0DDFF2]/30 px-3 py-1.5 md:px-5 md:py-2 rounded-[4px] uppercase tracking-wider">
                           {del}
                         </span>
                       ))}
@@ -92,7 +102,8 @@ const Services: React.FC = () => {
                   </div>
                 </div>
               </div>
-              <div className={`w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-2xl shrink-0 transition-all duration-300 mr-10 ${openIdx === idx ? 'bg-[#0DDFF2] border-[#0DDFF2] text-[#070B12] rotate-45' : 'group-hover:border-[#0DDFF2]/30 group-hover:text-[#0DDFF2]'}`}>
+
+              <div className={`hidden md:flex w-12 h-12 rounded-full border border-white/10 items-center justify-center text-2xl shrink-0 transition-all duration-300 mr-10 ${openIdx === idx ? 'bg-[#0DDFF2] border-[#0DDFF2] text-[#070B12] rotate-45' : 'group-hover:border-[#0DDFF2]/30 group-hover:text-[#0DDFF2]'}`}>
                 +
               </div>
             </div>

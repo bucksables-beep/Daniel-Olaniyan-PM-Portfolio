@@ -34,6 +34,9 @@ const AppContent: React.FC = () => {
     };
 
     const animateRing = () => {
+      // Only animate if pointer is fine (mouse)
+      if (!window.matchMedia('(pointer: fine)').matches) return;
+
       ringPos.current.x += (mousePos.current.x - ringPos.current.x) * 0.12;
       ringPos.current.y += (mousePos.current.y - ringPos.current.y) * 0.12;
       if (ringRef.current) {
@@ -45,24 +48,28 @@ const AppContent: React.FC = () => {
     window.addEventListener('mousemove', handleMouseMove);
     const animationId = requestAnimationFrame(animateRing);
 
-    // Scroll reveal logic
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      cancelAnimationFrame(animationId);
+    };
+  }, []);
+
+  // Scroll reveal logic - re-run on route change
+  const location = useLocation();
+  useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('in');
         }
       });
-    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    }, { threshold: 0.05, rootMargin: '0px 0px -50px 0px' });
 
     const revealElements = document.querySelectorAll('.reveal');
     revealElements.forEach((el) => observer.observe(el));
 
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      cancelAnimationFrame(animationId);
-      observer.disconnect();
-    };
-  }, []);
+    return () => observer.disconnect();
+  }, [location.pathname]);
 
   return (
     <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden bg-[#070B12]">
@@ -71,7 +78,7 @@ const AppContent: React.FC = () => {
       
       <Header />
       <ScrollToTop />
-      <main className="flex-1 pt-20">
+      <main className="flex-1 pt-20 relative z-0">
         <Routes>
           <Route path="/" element={<Hero />} />
           <Route path="/about" element={<About />} />

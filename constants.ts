@@ -4,129 +4,120 @@ export const FILTERS = ['All', 'Fintech', 'AI/ML', 'Product Management', 'SaaS',
 
 // Fix: Added STATS constant
 export const STATS = [
-  { label: 'Years of Experience', value: '6+' },
-  { label: 'Team Size Led', value: '30+' },
-  { label: 'Global Markets', value: '3' },
-  { label: 'Portfolio Size', value: '$10M' },
+  { label: 'AI Agents Shipped', value: '5', suffix: '+' },
+  { label: 'Platform Users', value: '10', suffix: 'k+' },
+  { label: 'Global Fellowships', value: '3', suffix: '' },
 ];
 
-// Fix: Added SKILLS constant
 export const SKILLS = [
-    {
-        icon: 'insights',
-        title: 'Product Strategy',
-        description: 'Building fast from Ideation. Manage Existing Products',
-    },
-    {
-        icon: 'design_services',
-        title: 'UX/UI Design',
-        description: 'Creating user-centered designs by understanding business requirements, and user feedback.',
-    },
-    {
-        icon: 'code',
-        title: 'AI Transformation',
-        description: 'Help teams adopt AI in development.',
-    },
-    {
-        icon: 'analytics',
-        title: 'Data Analysis',
-        description: 'Using data to inform product decisions and measure success.',
-    },
-    {
-        icon: 'groups',
-        title: 'Consulting and Business Leadership',
-        description: 'Leading cross-functional teams to deliver high-quality products on time.',
-    },
-    {
-        icon: 'monitoring',
-        title: 'Fintech Expertise',
-        description: 'Deep understanding of the financial technology landscape and regulations.',
-    },
+  'Multi-Agent Systems', 'Product Strategy', 'LangChain / LangSmith', 'GCP',
+  'RAG Architecture', 'MLOps', 'Full Stack Development', 'Node.js',
+  'Python', 'Claude API', 'Gemini', 'OpenAI', 'HubSpot'
+];
+
+export const RECOGNITION = [
+  {
+    year: '2025',
+    org: 'U.S. State Dept / IREX',
+    name: 'Mandela Washington Fellow',
+    detail: 'Clark Atlanta University. The YALI flagship programme for emerging African leaders in business, civic leadership, and public management.'
+  },
+  {
+    year: 'Active',
+    org: 'INSEAD',
+    name: 'AI Venture Lab Fellow',
+    detail: 'Programme for AI-native founders building ventures at the frontier of artificial intelligence and business.'
+  },
+  {
+    year: 'Active',
+    org: 'Ashoka',
+    name: 'Changemaker Fellow',
+    detail: 'Global fellowship recognising systems-level change and entrepreneurial approaches to social impact.'
+  },
+  {
+    year: '2019',
+    org: 'Merck KGaA',
+    name: 'X-Innovation Award',
+    detail: 'Awarded for the AI telemedicine platform reaching 10,000+ users in underserved communities.'
+  },
+  {
+    year: '2019',
+    org: 'Robert Bosch Stiftung',
+    name: 'Innovation Recognition',
+    detail: 'Impact-driven technology work in digital health across underserved populations globally.'
+  },
+  {
+    year: '2019',
+    org: 'NeurIPS / Black in AI',
+    name: 'AI Research Presenter',
+    detail: 'AI research presentation at the Black in AI workshop, NeurIPS Vancouver — one of the premier ML conferences globally.'
+  }
 ];
 
 export const PROJECTS: Project[] = [
   {
     id: 1,
     image: 'https://lh3.googleusercontent.com/d/1SZBfUFUQPGN89KrLXcHRXfOWTgKYRUJS',
-    alt: 'Abstract image of a fintech dashboard with glowing charts and graphs.',
-    title: 'AI-Powered Payroll and Lending Platform',
-    description: 'Revolutionized payroll and credit scoring with machine learning to increase loan approval accuracy.',
-    // Fix: Converted tags to an array and added impact property
-    tags: ['Fintech', 'AI', 'Strategy'],
-    categories: ['Fintech', 'AI/ML'],
+    alt: 'B2B Acquisition Engine',
+    title: 'B2B Acquisition Engine',
+    description: 'A 4-agent autonomous lead generation system on GCP. Agent 1 mines qualified prospects via sector, company size, and geographic signals. Subsequent agents enrich, score, and push into CRM with Slack notifications.',
+    tags: ['Node.js', 'GCP', 'PM2', 'Gemini 2.5', 'HubSpot'],
+    categories: ['AI/ML', 'SaaS'],
     impact: {
-      title: 'Increased Accuracy',
-      description: 'Reduced payroll processing time by over 200%, Improved Loan disbursement time by 50% and reduction in default rates by implementing a new credit scoring model.',
+      title: 'Autonomous Acquisition',
+      description: 'First corrected run produced qualified prospects without manual intervention.',
     },
   },
   {
     id: 2,
     image: 'https://lh3.googleusercontent.com/d/1QuptK56OGqjm-AMKD-YCsAcA3Xeavnvt',
-    alt: 'A person using a modern mobile banking application.',
-    title: 'Cross Border Fintech Mobile App',
-    description: 'Product Management launching from zero to one.',
-    // Fix: Converted tags to an array and added impact property
-    tags: ['UX/UI', 'Mobile', 'Fintech'],
-    categories: ['UX/UI Design', 'Fintech'],
+    alt: 'SmartTrader',
+    title: 'SmartTrader',
+    description: 'A 5-agent autonomous trading pipeline covering stocks, ETFs, and prediction markets. Signal detection, portfolio analysis, risk assessment, execution logic, and reporting — deployed on GCP.',
+    tags: ['Python', 'GCP', '5 Agents'],
+    categories: ['Fintech', 'AI/ML'],
     impact: {
-      title: 'Enhanced User Engagement',
-      description: 'Redesigned the user flow, leading to a 35% increase in daily active users.',
+      title: 'Autonomous Trading',
+      description: 'Full end-to-end trading pipeline with automated risk assessment.',
     },
   },
   {
     id: 3,
     image: 'https://lh3.googleusercontent.com/d/1wAP7Aa7xTzzjQAiXobUBxYPT4vsAOV-O',
-    alt: 'A world map with interconnected nodes representing a global payments network.',
-    title: 'Marketplace',
-    description: 'Website to help couple plan weddings on a budget',
-    // Fix: Converted tags to an array and added impact property
-    tags: ['E-commerce'],
-    categories: ['Product Management'],
+    alt: 'RevIntel (ShopAI)',
+    title: 'RevIntel (ShopAI)',
+    description: 'AI-powered retail intelligence platform providing inventory, pricing, and demand signals to supermarket operators. Full PRD and architecture completed; in active build.',
+    tags: ['AI Analytics', 'Retail', 'SaaS'],
+    categories: ['SaaS', 'AI/ML'],
     impact: {
-        title: 'Market Expansion',
-        description: 'Managed mobile and web app platforms from scratch',
+      title: 'Retail Intelligence',
+      description: 'Providing actionable signals to supermarket operators.',
     },
   },
   {
     id: 4,
     image: 'https://lh3.googleusercontent.com/d/1Y3Dd0pqVHMuJdNIIXmyXzDpy7YmtCSCW',
-    alt: 'A clean and modern data analytics dashboard on a laptop screen.',
-    title: 'Music Review App',
-    description: 'Product Strategy',
-    // Fix: Converted tags to an array and added impact property
-    tags: ['Product Management'],
-    categories: ['Product Management'],
+    alt: 'AutoHunt',
+    title: 'AutoHunt',
+    description: 'A 5-agent system using job postings as declared pain-point signals to surface and qualify SMBs globally. Built for internal and client consulting pipelines.',
+    tags: ['5 Agents', 'Signal Mining'],
+    categories: ['AI/ML', 'SaaS'],
     impact: {
-        title: 'Share your love for music',
-        description: 'Product Improvement, Team Setup, Processes',
+      title: 'Lead Intelligence',
+      description: 'Surfacing qualified SMBs via declared pain-point signals.',
     },
   },
   {
     id: 5,
     image: 'https://lh3.googleusercontent.com/d/10cUK8_iembOsgGzDJ4Zd4rMs3GdP_85P',
-    alt: 'An online shopping interface with product recommendations.',
-    title: 'Social Media & Bookings',
-    description: 'Algorithms to help people connect and book trips at destinations',
-    // Fix: Converted tags to an array and added impact property
-    tags: ['E-commerce'],
-    categories: ['Product Management'],
+    alt: 'AI Telemedicine Platform',
+    title: 'AI Telemedicine Platform',
+    description: '10,000+ users across underserved communities. AI-powered triage and consultation at the intersection of public health and technology. Merck X-Innovation Award. NeurIPS 2019.',
+    tags: ['AI Health', '10k+ Users', 'NeurIPS 19'],
+    categories: ['AI/ML', 'HealthTech'],
     impact: {
-        title: 'Revenue Growth',
-        description: 'The recommendation engine contributed to a 25% uplift in average order value.',
-    },
-  },
-  {
-    id: 6,
-    image: 'https://lh3.googleusercontent.com/d/129A4E_QVNcGdpsZNU9UPQ3IH9h1YBN3L',
-    alt: 'Revamp of Powerful CRM',
-    title: 'CRM Platform UX Overhaul',
-    description: 'Streamlined user workflows, reducing support tickets by 50%.',
-    // Fix: Converted tags to an array and added impact property
-    tags: ['SaaS', 'UX/UI', 'Product Strategy'],
-    categories: ['SaaS', 'UX/UI Design', 'Product Management'],
-    impact: {
-        title: 'Operational Efficiency',
-        description: 'The new design reduced user-reported issues by 50%, freeing up support resources.',
+      title: 'Global Impact',
+      description: 'Reached 10,000+ users in underserved communities with AI triage.',
     },
   },
 ];

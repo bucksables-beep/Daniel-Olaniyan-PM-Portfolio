@@ -1,22 +1,19 @@
 import React from 'react';
 
 const Footer: React.FC = () => {
-    const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-        e.preventDefault();
-        window.location.hash = href;
-    };
-
-    return (
-        <footer className="flex flex-col gap-8 px-5 py-16 mt-20 text-center @container border-t border-white/10">
-            <div className="flex flex-wrap items-center justify-center gap-6 @[480px]:flex-row @[480px]:justify-around">
-                <a className="text-neutral-400 hover:text-white transition-colors text-base font-normal leading-normal min-w-40" href="#home" onClick={(e) => handleNavClick(e, '#home')}>Home</a>
-                <a className="text-neutral-400 hover:text-white transition-colors text-base font-normal leading-normal min-w-40" href="#about" onClick={(e) => handleNavClick(e, '#about')}>About</a>
-                <a className="text-neutral-400 hover:text-white transition-colors text-base font-normal leading-normal min-w-40" href="#portfolio" onClick={(e) => handleNavClick(e, '#portfolio')}>Portfolio</a>
-                <a className="text-neutral-400 hover:text-white transition-colors text-base font-normal leading-normal min-w-40" href="#contact" onClick={(e) => handleNavClick(e, '#contact')}>Contact</a>
-            </div>
-            <p className="text-neutral-500 text-sm font-normal leading-normal">© 2025 Daniel Olaniyan. All Rights Reserved.</p>
-        </footer>
-    );
+  return (
+    <footer className="bg-[#0C1220] border-t border-white/10 p-12 px-6 md:px-20 flex flex-col md:flex-row items-center justify-between relative z-[2]">
+      <div className="font-syne font-extrabold text-2xl text-[#DDE4EE] tracking-[-0.5px]">
+        D<span className="text-[#0DDFF2]">.</span>O
+      </div>
+      <div className="font-mono text-xs text-[#3A4D62] mt-6 md:mt-0 uppercase tracking-widest">
+        © 2026 Daniel Olaniyan
+      </div>
+      <div className="font-syne text-sm text-[#6E8099] mt-6 md:mt-0 uppercase tracking-wider">
+        AI Product Leader · Systems Architect · Consultant
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;

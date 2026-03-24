@@ -1,114 +1,58 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
-interface HeaderProps {
-  activeRoute: string;
-}
+const Header: React.FC = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
 
-const navLinks = [
-  { href: '#home', label: 'Home' },
-  { href: '#about', label: 'About' },
-  { href: '#portfolio', label: 'Portfolio' },
-  { href: '#contact', label: 'Contact' },
-];
-
-const Header: React.FC<HeaderProps> = ({ activeRoute }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  // Effect to prevent body scroll when menu is open
   useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    // Cleanup function to reset scroll on component unmount
-    return () => {
-      document.body.style.overflow = 'unset';
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
     };
-  }, [isMenuOpen]);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    window.location.hash = href;
-    if (isMenuOpen) {
-      setIsMenuOpen(false);
-    }
-  };
+  const navItems = [
+    { name: 'About', path: '/about' },
+    { name: 'Work', path: '/work' },
+    { name: 'Recognition', path: '/recognition' },
+    { name: 'Services', path: '/services' },
+    { name: 'Writing', path: '/writing' },
+  ];
 
   return (
-    <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-white/10 py-3">
-      <a href="#home" onClick={(e) => handleNavClick(e, '#home')} className="flex items-center gap-3 text-white z-50">
-        <img src="https://lh3.googleusercontent.com/d/1mw8eJPPMUvcyC2w-xfWf6mxrHQVsTSr6" alt="Daniel Olaniyan Logo" className="h-8 w-auto" />
-        <h2 className="text-white text-lg font-bold leading-tight tracking-[-0.015em]">Daniel Olaniyan</h2>
-      </a>
-      
-      {/* Desktop Navigation */}
-      <nav className="hidden md:flex flex-1 justify-end items-center gap-8">
-        <div className="flex items-center gap-9">
-          {navLinks.map((link) => (
-            <a 
-              key={link.href}
-              href={link.href}
-              onClick={(e) => handleNavClick(e, link.href)}
-              className={`transition-colors text-sm font-medium leading-normal ${
-                activeRoute === link.href ? 'text-white' : 'text-neutral-300 hover:text-white'
-              }`}
+    <nav className={`fixed top-0 left-0 right-0 z-[100] flex items-center bg-[#070B12]/92 backdrop-blur-[24px] border-b border-white/5 px-6 md:px-12 transition-all duration-300 ${isScrolled ? 'h-16' : 'h-20'}`}>
+      <Link to="/" className="font-syne font-extrabold text-2xl text-[#DDE4EE] no-underline tracking-[-0.5px] mr-10 shrink-0">
+        D<span className="text-[#0DDFF2]">.</span>O
+      </Link>
+      <div className="hidden md:block w-px h-8 bg-white/5 mr-10 shrink-0"></div>
+      <span className="hidden lg:block font-mono text-xs text-[#3A4D62] tracking-[0.08em] mr-auto whitespace-nowrap uppercase">
+        AI Product Leader &nbsp;·&nbsp; <strong className="text-[#6E8099] font-medium">Systems Architect</strong>
+      </span>
+      <ul className="hidden md:flex gap-0 list-none items-stretch h-full">
+        {navItems.map((item) => (
+          <li key={item.name}>
+            <Link 
+              to={item.path}
+              className={`font-mono text-sm no-underline tracking-[0.06em] px-6 flex items-center h-full border-l border-white/5 transition-all duration-200 hover:text-[#0DDFF2] hover:bg-[#0DDFF2]/10 ${location.pathname === item.path ? 'text-[#0DDFF2] bg-[#0DDFF2]/5' : 'text-[#6E8099]'}`}
             >
-              {link.label}
-            </a>
-          ))}
-        </div>
-        <a href="#contact" onClick={(e) => handleNavClick(e, '#contact')} className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
-          <span className="truncate">Hire Me</span>
-        </a>
-      </nav>
-
-      {/* Mobile Menu Button */}
-      <div className="md:hidden z-50">
-        <button 
-          onClick={() => setIsMenuOpen(!isMenuOpen)} 
-          className="text-white p-2"
-          aria-label="Toggle menu"
-          aria-expanded={isMenuOpen}
-          aria-controls="mobile-menu"
-        >
-          <span className="material-symbols-outlined text-3xl">
-            {isMenuOpen ? 'close' : 'menu'}
-          </span>
-        </button>
+              {item.name}
+            </Link>
+          </li>
+        ))}
+      </ul>
+      <div className="flex items-center gap-3 px-6 border-l border-white/5 h-full shrink-0">
+        <div className="w-2 h-2 rounded-full bg-[#0DDFF2] animate-[blink_2s_infinite]"></div>
+        <span className="font-mono text-xs text-[#0DDFF2] tracking-[0.08em] whitespace-nowrap uppercase">Available</span>
       </div>
-
-      {/* Mobile Menu Overlay */}
-      <div 
-        id="mobile-menu"
-        className={`fixed inset-0 bg-background-dark/80 backdrop-blur-sm z-40 flex flex-col items-center justify-center md:hidden transition-opacity duration-300 ease-in-out ${isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-        onClick={() => setIsMenuOpen(false)}
+      <Link 
+        to="/contact"
+        className={`flex items-center h-full px-8 border-l border-white/5 shrink-0 font-mono text-sm no-underline tracking-[0.06em] transition-all duration-200 ${location.pathname === '/contact' ? 'bg-[#0DDFF2] text-[#070B12]' : 'bg-[#0DDFF2]/10 text-[#0DDFF2] hover:bg-[#0DDFF2] hover:text-[#070B12]'}`}
       >
-        <div className="flex flex-col items-center" onClick={(e) => e.stopPropagation()}>
-          <nav className={`flex flex-col items-center gap-8 transition-all duration-300 ease-in-out ${isMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-5 opacity-0'}`}>
-            {navLinks.map((link) => (
-              <a 
-                key={link.href}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className={`transition-colors text-2xl font-medium leading-normal ${
-                  activeRoute === link.href ? 'text-primary' : 'text-neutral-300 hover:text-white'
-                }`}
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
-          <a 
-            href="#contact" 
-            onClick={(e) => handleNavClick(e, '#contact')}
-            className={`mt-12 flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-all duration-300 ease-in-out ${isMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-5 opacity-0'}`}
-          >
-            <span className="truncate">Get in Touch</span>
-          </a>
-        </div>
-      </div>
-    </header>
+        Get in Touch
+      </Link>
+    </nav>
   );
 };
 

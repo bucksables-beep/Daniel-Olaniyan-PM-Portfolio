@@ -96,11 +96,6 @@ const Header: React.FC = () => {
         ))}
       </ul>
 
-      <div className="hidden md:flex items-center gap-3 px-6 border-l border-white/5 h-full shrink-0">
-        <div className="w-2 h-2 rounded-full bg-[#0DDFF2] animate-[blink_2s_infinite]"></div>
-        <span className="font-mono text-xs text-[#0DDFF2] tracking-[0.08em] whitespace-nowrap uppercase">Available</span>
-      </div>
-
       <Link 
         to="/contact"
         className={`hidden md:flex items-center h-full px-8 border-l border-white/5 shrink-0 font-mono text-sm no-underline tracking-[0.06em] transition-all duration-200 ${location.pathname === '/contact' ? 'bg-[#0DDFF2] text-[#070B12]' : 'bg-[#0DDFF2]/10 text-[#0DDFF2] hover:bg-[#0DDFF2] hover:text-[#070B12]'}`}
@@ -161,10 +156,6 @@ const Header: React.FC = () => {
               transition={{ delay: 0.6 }}
               className="mt-auto pt-8 border-t border-white/10"
             >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-2 h-2 rounded-full bg-[#0DDFF2] animate-[blink_2s_infinite]"></div>
-                <span className="font-mono text-[10px] text-[#0DDFF2] tracking-[0.08em] uppercase">Currently Available for Work</span>
-              </div>
               <p className="font-mono text-[10px] text-[#3A4D62] uppercase tracking-widest leading-relaxed">
                 AI Product Leader & Systems Architect
               </p>
